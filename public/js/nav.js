@@ -3,14 +3,14 @@ const createNav = () => {
 
     nav.innerHTML = `
         <div class="nav">
-          <img src="/public/img/dark-logo.png" class="brand-logo" alt="">
+          <img src="img/dark-logo.png" class="brand-logo" alt="">
           <div class="nav-items">
               <div class="search">
                  <input type="text" class="search-box" placeholder="buscar marca, produto">
                  <button class="search-btn">Buscar</button>
               </div>
-              <a href="#"><img src="/public/img/user.png" alt=""></a>
-              <a href="#"><img src="/public/img/cart.png" alt=""></a>
+              <a href="#"><img src="img/user.png" alt=""></a>
+              <a href="#"><img src="img/cart.png" alt=""></a>
           </div>
         </div>
         <ul class="links-container">
