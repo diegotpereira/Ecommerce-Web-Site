@@ -16,7 +16,7 @@ body {
 }
 
 .become-seller {
-    border-bottom: 10px;
+    border-radius: 10px;
     background: #fff;
     padding: 30px;
 }
