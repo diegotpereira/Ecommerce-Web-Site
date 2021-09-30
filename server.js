@@ -114,6 +114,30 @@ app.post('/signup', (req, res) => {
         })
 })
 
+// seller route 
+app.get('/seller', (req, res) => {
+    res.sendFile(path.join(staticPath, "seller.html"));
+})
+
+app.post('/seller', (req, res) => {
+    let { name, about, address, number, tac, legit, email } = req.body;
+    if (!name.length || !address.length || !about.length || number.length < 10 || !Number(number)) {
+        return res.json({ 'alert': 'alguma informação(s) é/são inválida(s)  ' })
+    } else if (!tac || !legit) {
+        return res.json({ 'alert': 'você deve concordar com termos e condições' })
+    } else {
+        // update users seller status here
+        db.collection('sellers').doc(email).set(req.body)
+            .then(data => {
+                db.collection('users').doc(email).update({
+                    seller: true
+                }).then(data => {
+                    res.json(true);
+                })
+            })
+    }
+})
+
 // 404 route
 app.get('/404', (req, res) => {
     res.sendFile(path.join(staticPath, "404.html"));
